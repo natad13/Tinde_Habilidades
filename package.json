@@ -1,0 +1,22 @@
+{
+  "name": "proyectov2",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "knex": "knex init",
+    "knex_migrations": "knex migrate:make empresa && knex migrate:make persona && knex migrate:make tarea ",
+    "knex_latest": "knex migrate:latest",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "knex": "^2.5.1",
+    "pg": "^8.11.3"
+  },
+  "devDependencies": {},
+  "description": ""
+}
