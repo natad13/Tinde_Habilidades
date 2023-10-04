@@ -24,9 +24,15 @@ const UpdatePersona =(id,x) =>{
  
     return database.select('*').from('persona').where('id_persona', id).update(x);
 };
+
+const deletePersona =(id) =>{
+ 
+    return database.select('*').from('persona').where('id_persona', id).delete();
+};
 module.exports ={
     createPersona,
     getAllpersonas,
     getOnepersona,
-    UpdatePersona
+    UpdatePersona,
+    deletePersona
 };

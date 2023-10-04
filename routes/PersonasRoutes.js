@@ -19,6 +19,6 @@ router.put ('/:id_persona',(req,res) => res.send ({ message : "Se sustituyo"}))
 // Update uno
 router.patch ('/:id_persona', PersonaController.updatePersona);
 
-router.delete('/:id_persona',(req,res) => res.send ({ message : "se creo"}));
+router.delete('/:id_persona',PersonaController.deletePersona);
 
 module.exports = router;

@@ -58,9 +58,24 @@ const updatePersona = (req,res) =>{
 };
 
 
+const deletePersona = (req,res) =>{
+    console.log(req.body);
+   
+    console.log(`patch body ${req.body}`);
+    PersonaModel.deletePersona(req.params.id_persona)
+    .then((data) => {
+        return res.status(201).send({message:data})
+    })
+    .catch ((error) =>{
+        return res.status(500).send({message: error})
+   });
+
+};
+
 module.exports = {
     createPersona,
     getAllpersonas,
     getOnepersona,
-    updatePersona
+    updatePersona,
+    deletePersona
 }
