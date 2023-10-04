@@ -21,8 +21,22 @@ const getOneempresa =(id) =>{
     return database.select('*').from('empresa').where('id_empresa', id);
 };
 
+const UpdateEmpresa =(id,x) =>{
+    console.log(x);
+    console.log(id);
+ 
+    return database.select('*').from('empresa').where('id_empresa', id).update(x);
+};
+
+const deleteEmpresa =(id) =>{
+ 
+    return database.select('*').from('empresa').where('id_empresa', id).delete();
+};
+
 module.exports ={
     createEmpresa,
     getAllempresas,
-    getOneempresa
+    getOneempresa,
+    UpdateEmpresa,
+    deleteEmpresa
 };

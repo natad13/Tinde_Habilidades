@@ -1,6 +1,6 @@
 const EmpresaModel = require('../models/Empresas');
 
-//Crear persona (POST)
+//Crear empresa (POST)
 const createEmpresa = (req,res) =>{
     console.log(req.body);
    EmpresaModel.createEmpresa(req.body)
@@ -14,7 +14,7 @@ const createEmpresa = (req,res) =>{
 
 };
 
-// Buscar todas las personas (GET)
+// Buscar todas las empresas (GET)
 const getAllempresas = (req,res) =>{
     EmpresaModel.getAllempresas()
     .then((data) => {
@@ -29,9 +29,8 @@ const getAllempresas = (req,res) =>{
 
 };
 
-// Buscar una persona (GET)
+// Buscar una empresa (GET)
 const getOnepeempresa = (req,res) =>{
-    console.log("holaaa");
     console.log(req.params.id_empresa)
     EmpresaModel.getOneempresa(req.params.id_empresa)
     .then((data) => {
@@ -44,8 +43,37 @@ const getOnepeempresa = (req,res) =>{
 };
 
 
+//Actualizar empresa 
+
+const updateEmpresa = (req,res) =>{
+    
+    EmpresaModel.UpdateEmpresa(req.params.id_empresa,req.body)
+    .then((data) => {
+        return res.status(201).send({message:data})
+    })
+    .catch ((error) =>{
+        return res.status(500).send({message: error})
+   });
+
+};
+
+
+const deleteEmpresa = (req,res) =>{
+
+    EmpresaModel.deleteEmpresa(req.params.id_empresa)
+    .then((data) => {
+        return res.status(201).send({message:data})
+    })
+    .catch ((error) =>{
+        return res.status(500).send({message: error})
+   });
+
+};
+
 module.exports = {
     createEmpresa,
     getAllempresas,
-    getOnepeempresa
+    getOnepeempresa,
+    updateEmpresa,
+    deleteEmpresa
 }
