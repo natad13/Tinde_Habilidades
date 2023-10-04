@@ -1,10 +1,10 @@
-const EmpresaModel = require('../models/Empresas');
+const TareaModel = require ('../models/Tarea');
 
 
 //Crear empresa (POST)
-const createEmpresa = (req,res) =>{
+const createTarea = (req,res) =>{
     console.log(req.body);
-   EmpresaModel.createEmpresa(req.body)
+   TareaModel.createTarea(req.body)
    .then((respuesta) => {
         return res.status(201).send({menssage: respuesta})
    })
@@ -16,8 +16,8 @@ const createEmpresa = (req,res) =>{
 };
 
 // Buscar todas las empresas (GET)
-const getAllempresas = (req,res) =>{
-    EmpresaModel.getAllempresas()
+const getAlltarea = (req,res) =>{
+    TareaModel.getAlltarea()
     .then((data) => {
         return res.status(201).send({message:data})
 
@@ -31,9 +31,9 @@ const getAllempresas = (req,res) =>{
 };
 
 // Buscar una empresa (GET)
-const getOnepeempresa = (req,res) =>{
+const getOneTarea = (req,res) =>{
     console.log(req.params.id_empresa)
-    EmpresaModel.getOneempresa(req.params.id_empresa)
+    TareaModel.getOnetarea(req.params.id_tarea)
     .then((data) => {
         return res.status(201).send({message:data})
     })
@@ -46,9 +46,9 @@ const getOnepeempresa = (req,res) =>{
 
 //Actualizar empresa 
 
-const updateEmpresa = (req,res) =>{
+const updateTarea = (req,res) =>{
     
-    EmpresaModel.UpdateEmpresa(req.params.id_empresa,req.body)
+    TareaModel.UpdateTarea(req.params.id_tarea,req.body)
     .then((data) => {
         return res.status(201).send({message:data})
     })
@@ -59,9 +59,9 @@ const updateEmpresa = (req,res) =>{
 };
 
 
-const deleteEmpresa = (req,res) =>{
+const deleteTarea = (req,res) =>{
 
-    EmpresaModel.deleteEmpresa(req.params.id_empresa)
+    TareaModel.deleteTarea(req.params.id_tarea)
     .then((data) => {
         return res.status(201).send({message:data})
     })
@@ -72,9 +72,9 @@ const deleteEmpresa = (req,res) =>{
 };
 
 module.exports = {
-    createEmpresa,
-    getAllempresas,
-    getOnepeempresa,
-    updateEmpresa,
-    deleteEmpresa
+   createTarea,
+   getAlltarea,
+   getOneTarea,
+   updateTarea,
+   deleteTarea
 }
