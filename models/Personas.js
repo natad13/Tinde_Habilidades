@@ -17,7 +17,15 @@ const getAllpersonas =() =>{
 };
 
 const getOnepersona =(id) =>{
+ 
     return database.select('*').from('persona').where('id_persona', id);
+};
+
+const loginPersona =(usuario, pass) =>{
+    console.log('entre autorizaicion')
+    console.log(usuario)
+    console.log(pass)
+    return database.select('*').from('persona').where({ usuario: usuario,contrasena:pass });
 };
 
 const UpdatePersona =(id,x) =>{
@@ -34,5 +42,6 @@ module.exports ={
     getAllpersonas,
     getOnepersona,
     UpdatePersona,
-    deletePersona
+    deletePersona,
+    loginPersona
 };
