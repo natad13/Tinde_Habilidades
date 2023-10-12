@@ -2,6 +2,7 @@ const PersonaModel = require('../models/Personas');
 
 //Crear persona (POST)
 const createPersona = (req,res) =>{
+    res.set( 'Access-Control-Allow-Origin', '*');
     console.log(req.body);
    PersonaModel.createPersona(req.body)
    .then((respuesta) => {
@@ -16,13 +17,15 @@ const createPersona = (req,res) =>{
 
 // Buscar todas las personas (GET)
 const getAllpersonas = (req,res) =>{
+    //res.set( 'Access-Control-Allow-Origin', '*');
     PersonaModel.getAllpersonas()
     .then((data) => {
-        return res.status(201).send({message:data})
+        
+        return  res.status(201).send({message:data})
 
     })
     .catch ((error) =>{
-        console.log(error)
+        //console.log(error)
         return res.status(500).send({message: error})
 
    });
@@ -71,6 +74,8 @@ const deletePersona = (req,res) =>{
    });
 
 };
+
+
 
 module.exports = {
     createPersona,
