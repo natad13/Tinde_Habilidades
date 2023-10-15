@@ -7,6 +7,7 @@ const router = express.Router();
  const EmpresaRoutes = require ('./EmpresaRoutes');
  const TareaRoutes = require ('./TareaRoutes');
  const AutorizacionRoutes = require ('./AutorizacionRoutes');
+ const song = require ('./songRoutes');
 
 
 
@@ -14,7 +15,7 @@ const router = express.Router();
  router.use('/empresas',EmpresaRoutes); 
  router.use('/tareas',TareaRoutes); 
  router.use('/login',AutorizacionRoutes); 
-
+ router.use('/songs', song);
 
 
 

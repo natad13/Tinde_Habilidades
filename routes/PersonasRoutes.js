@@ -1,4 +1,5 @@
 const express = require('express');
+const validateJTW =require('../controllers/AutorizacionController')
 
 const router = express.Router();
 const {PersonaController} = require('../controllers')
@@ -7,7 +8,7 @@ const {PersonaController} = require('../controllers')
 router.post('/',PersonaController.createPersona);
 
 // Leer Todos
-router.get ('/',PersonaController.getAllpersonas);
+router.get ('/',validateJTW,PersonaController.getAllpersonas);
 
 // Leer uno
 router.get ('/:id_persona',PersonaController.getOnepersona);

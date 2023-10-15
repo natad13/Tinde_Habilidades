@@ -1,29 +1,32 @@
 const express = require('express');
 const PersonaModel = require ('../models/Personas')
+const PersonaRoutes =require ('./PersonasRoutes')
+const AutorizacionController =require ('../controllers/AutorizacionController')
+require('dotenv').config();
 
 
 const router = express.Router();
 
 const jwt = require ('jsonwebtoken');
-const SECRET_KEY ="mi_clave_super_cool";
+const SECRET_KEY =process.env.SECRET_KEY;
 
 //creacion de un token que no permita posteriormente acceder a los recursos que requieren la info que requerien  autorizcion
 
-router.post('/',(req,res) =>{
+router.post('/auth',(req,res) =>{
     const {usuario , contrasena} = req.body;
     console.log( usuario + contrasena);
     PersonaModel.loginPersona(usuario,contrasena)
-    .then((data) => {
-
-        const token = jwt.sign({nombre},SECRET_KEY,{expiresIn:'3m'});
-        return res.status(201).send(token)
+    .then((respuesta) => {
+        console.log("credenciales correctas");
         
-    })
-    .catch ((error) =>{
-        return res.status(500).send({message: 'informacion incorrecta'})
+        const token = jwt.sign({usuario},SECRET_KEY,{expiresIn:'120m'});
+        return res.status(201).send(token)
+   })
+   .catch ((error) =>{
+        console.log ("me mori ")
+        return res.status(500).send({message: error})
    });
 
-   
 
 });
 
