@@ -8,7 +8,7 @@ const {PersonaController} = require('../controllers')
 router.post('/',PersonaController.createPersona);
 
 // Leer Todos
-router.get ('/',validateJTW,PersonaController.getAllpersonas);
+router.get ('/',PersonaController.getAllpersonas);
 
 // Leer uno
 router.get ('/:id_persona',PersonaController.getOnepersona);

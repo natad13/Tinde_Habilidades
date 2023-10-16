@@ -22,8 +22,8 @@ const getOnepersona =(id) =>{
     return database.select('*').from('persona').where('id_persona', id);
 };
 
-const loginPersona =(usuario, pass) =>{
-    console.log('entre autorizaicion')
+const loginPersona =(usuario, pass, tipo) =>{
+    console.log('entre modelo Autorizacion ')
     console.log(usuario)
     console.log(pass)
     return database.select('*').from('persona').where({ usuario: usuario,contrasena:pass });
