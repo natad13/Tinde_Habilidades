@@ -4,9 +4,7 @@ const connection = require ("../knexfile")['development'];
 const database = require('knex')(connection);
 
 const createPersona =(persona) =>{
-    console.log("BODYY")
-    console.log(persona)
-    console.log("estoy creando")
+    console.log("estoy creando modelo")
     return database ('persona')
     .insert(persona); // inserta lo que trae del body
 };
@@ -26,7 +24,7 @@ const loginPersona =(usuario, pass, tipo) =>{
     console.log('entre modelo Autorizacion ')
     console.log(usuario)
     console.log(pass)
-    return database.select('*').from('persona').where({ usuario: usuario,contrasena:pass });
+    return database.select('*').from(tipo).where({ usuario: usuario,contrasena:pass });
 };
 
 const UpdatePersona =(id,x) =>{

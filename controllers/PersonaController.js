@@ -3,14 +3,16 @@ const PersonaModel = require('../models/Personas');
 //Crear persona (POST)
 const createPersona = (req,res) =>{
     res.set( 'Access-Control-Allow-Origin', '*');
+    console.log("eNTRE A CREAR");
     console.log(req.body);
    PersonaModel.createPersona(req.body)
    .then((respuesta) => {
-        return res.status(201).send({menssage: respuesta})
+        console.log ("me moridsd ")
+        return res.status(201).send({menssage: "Elemento Creado"})
    })
    .catch ((error) =>{
         console.log ("me mori ")
-        return res.status(500).send({message: error})
+        return res.status(500).send({message: "error"})
    });
 
 };

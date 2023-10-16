@@ -6,11 +6,11 @@ const createEmpresa = (req,res) =>{
     console.log(req.body);
    EmpresaModel.createEmpresa(req.body)
    .then((respuesta) => {
-        return res.status(201).send({menssage: respuesta})
+        return res.status(201).send({menssage: "Elemento Creado"})
    })
    .catch ((error) =>{
         console.log ("me mori ")
-        return res.status(500).send({message: error})
+        return res.status(500).send({message: "error"})
    });
 
 };

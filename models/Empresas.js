@@ -4,7 +4,7 @@ const connection = require ("../knexfile")['development'];
 const database = require('knex')(connection);
 
 const createEmpresa =(empresa) =>{
-    console.log("estoy creando")
+    console.log("estoy creando empresa")
     console.log(empresa);
     return database ('empresa')
     .insert(empresa); // inserta lo que trae del body
