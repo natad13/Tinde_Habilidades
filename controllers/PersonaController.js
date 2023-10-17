@@ -7,7 +7,7 @@ const createPersona = (req,res) =>{
     console.log(req.body);
    PersonaModel.createPersona(req.body)
    .then((respuesta) => {
-        console.log ("me moridsd ")
+       
         return res.status(201).send({menssage: "Elemento Creado"})
    })
    .catch ((error) =>{
@@ -22,8 +22,7 @@ const getAllpersonas = (req,res) =>{
     //res.set( 'Access-Control-Allow-Origin', '*');
     PersonaModel.getAllpersonas()
     .then((data) => {
-        
-        return  res.status(201).send({message:data})
+        return  res.status(201).send(data)
 
     })
     .catch ((error) =>{

@@ -22,9 +22,6 @@ const getOneempresa =(id) =>{
 };
 
 const UpdateEmpresa =(id,x) =>{
-    console.log(x);
-    console.log(id);
- 
     return database.select('*').from('empresa').where('id_empresa', id).update(x);
 };
 

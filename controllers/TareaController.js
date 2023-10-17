@@ -6,11 +6,12 @@ const createTarea = (req,res) =>{
     console.log(req.body);
    TareaModel.createTarea(req.body)
    .then((respuesta) => {
-        return res.status(201).send({menssage: respuesta})
+        console.log("tarea creada correctamente")
+        return res.status(201).send({menssage: "elemento creado"})
    })
    .catch ((error) =>{
         console.log ("me mori ")
-        return res.status(500).send({message: error})
+        return res.status(500).send({message: "error"})
    });
 
 };

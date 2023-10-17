@@ -22,8 +22,6 @@ const getOnepersona =(id) =>{
 
 const loginPersona =(usuario, pass, tipo) =>{
     console.log('entre modelo Autorizacion ')
-    console.log(usuario)
-    console.log(pass)
     return database.select('*').from(tipo).where({ usuario: usuario,contrasena:pass });
 };
 

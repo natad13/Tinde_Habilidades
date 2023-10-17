@@ -14,17 +14,21 @@ const SECRET_KEY =process.env.SECRET_KEY;
 
 router.post('/auth',(req,res) =>{
      console.log("entre a auteticacion");
-     console.log(req.body);
      const {usuario , contrasena , tipo} = req.body;
      PersonaModel.loginPersona(usuario,contrasena,tipo)
     .then((data) => {
-          console.log("me devolvi con la info")
-          const tamano =(Object.entries(data).length)
-          console.log(tamano)
+          const tamano =(Object.entries(data).length);;
           if (tamano !=0 ) {
                console.log("credenciales correctas");
                const token = jwt.sign({usuario},SECRET_KEY,{expiresIn:'120m'});
-               return res.status(201).send({token})
+               if (tipo == "empresa") {
+
+                    return res.status(201).send([{token:token},{id:data[0].id_empresa}])
+  
+               }
+               else{
+                    return res.status(201).send([{token:token},{id:data[0].id_persona}])
+               }
                //return res.status(201).send({message:data})
           }else{
               return res.status(401).send({ message: 'Correo o contraseña incorrectos' })
@@ -38,29 +42,6 @@ router.post('/auth',(req,res) =>{
 
 
 
-     /* PersonaModel.loginPersona(usuario,contrasena,tipo)
-     .then((respuesta) => {
-          console.log("credenciales correctas");
-          
-          //const token = jwt.sign({usuario},SECRET_KEY,{expiresIn:'120m'});
-          //return res.status(201).send(token)
-          return res.status(201).send({message:'oki'})
-     })
-     .catch ((error) =>{
-          console.log ("me mori ")
-          return res.status(500).send({message: error})
-     });
- */
-
-
-/* 
-     if(validate){
-          const token = jwt.sign({usuario}, SECRET_KEY, { expiresIn: '5m' })
-          res.status(201).send({ token }) 
-     } else{
-          res.status(401).send({ message: 'Correo o contraseña incorrectos' })
-
-     } */
-
+     
 });
 module.exports = router;
