@@ -20,6 +20,13 @@ const getOnetarea =(id) =>{
     return database.select('*').from('tarea').where('id_tarea', id);
 };
 
+
+const getTareaEmpresa =(id) =>{
+    console.log("modelo buscar tarea empresa ");
+    console.log(id)
+    return database.select('*').from('tarea').where('idempresa', id);
+};
+
 const UpdateTarea =(id,x) =>{
  
     return database.select('*').from('tarea').where('id_tarea', id).update(x);
@@ -34,5 +41,6 @@ module.exports ={
     getAlltarea,
     getOnetarea,
     UpdateTarea,
-    deleteTarea
+    deleteTarea,
+    getTareaEmpresa
 };
