@@ -65,7 +65,7 @@ const updateTarea = (req,res) =>{
     
     TareaModel.UpdateTarea(req.params.id_tarea,req.body)
     .then((data) => {
-        return res.status(201).send({message:data})
+        return res.status(201).send({message:"actualizado correctamente"})
     })
     .catch ((error) =>{
         return res.status(500).send({message: error})
