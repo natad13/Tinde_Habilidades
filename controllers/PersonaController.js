@@ -37,7 +37,7 @@ const getAllpersonas = (req,res) =>{
 const getOnepersona = (req,res) =>{
     PersonaModel.getOnepersona(req.params.id_persona)
     .then((data) => {
-        return res.status(201).send({message:data})
+        return res.status(201).send(data)
     })
     .catch ((error) =>{
         return res.status(500).send({message: error})
