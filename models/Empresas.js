@@ -12,12 +12,12 @@ const createEmpresa =(empresa) =>{
 
 
 const getAllempresas =() =>{
-    console.log("estoy buscando")
+    
     return database.select('*').from('empresa');
 };
 
 const getOneempresa =(id) =>{
-    console.log(id);
+ 
     return database.select('*').from('empresa').where('id_empresa', id);
 };
 

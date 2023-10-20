@@ -35,7 +35,7 @@ const getOnepeempresa = (req,res) =>{
     console.log(req.params.id_empresa)
     EmpresaModel.getOneempresa(req.params.id_empresa)
     .then((data) => {
-        console.log('INFO EMPRESA')
+     
         return res.status(201).send(data)
     })
     .catch ((error) =>{

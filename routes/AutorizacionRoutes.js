@@ -19,7 +19,7 @@ router.post('/auth',(req,res) =>{
     .then((data) => {
           const tamano =(Object.entries(data).length);;
           if (tamano !=0 ) {
-               console.log("credenciales correctas");
+          
                const token = jwt.sign({usuario},SECRET_KEY,{expiresIn:'120m'});
                if (tipo == "empresa") {
 
@@ -36,7 +36,7 @@ router.post('/auth',(req,res) =>{
           } 
     })
     .catch ((error) =>{
-          console.log ("Credenciales Incorrectas ")
+         
         return res.status(500).send({message: error})
    });
 

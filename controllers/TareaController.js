@@ -3,14 +3,14 @@ const TareaModel = require ('../models/Tarea');
 
 //Crear empresa (POST)
 const createTarea = (req,res) =>{
-    console.log(req.body);
+   
    TareaModel.createTarea(req.body)
    .then((respuesta) => {
-        console.log("tarea creada correctamente")
+        
         return res.status(201).send({menssage: "elemento creado"})
    })
    .catch ((error) =>{
-        console.log ("me mori ")
+    
         return res.status(500).send({message: "error"})
    });
 
@@ -33,7 +33,7 @@ const getAlltarea = (req,res) =>{
 
 // Buscar una empresa (GET)
 const getOneTarea = (req,res) =>{
-    console.log(req.params.id_empresa)
+ 
     TareaModel.getOnetarea(req.params.id_tarea)
     .then((data) => {
         return res.status(201).send({message:data})
@@ -48,7 +48,7 @@ const getOneTarea = (req,res) =>{
 
 
 const getTareaEmpresa = (req,res) =>{
-    console.log(req.params.id_empresa)
+    
     TareaModel.getTareaEmpresa(req.params.id_empresa)
     .then((data) => {
         return res.status(201).send(data)
@@ -63,7 +63,7 @@ const getTareaEmpresa = (req,res) =>{
 
 
 const getTareaPersona = (req,res) =>{
-    console.log(req.params.id_persona)
+  
     TareaModel.getTareaPersona(req.params.id_persona)
     .then((data) => {
         return res.status(201).send(data)

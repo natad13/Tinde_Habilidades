@@ -48,9 +48,7 @@ const getOnepersona = (req,res) =>{
 //Actualizar persona 
 
 const updatePersona = (req,res) =>{
-    console.log(req.body);
-   
-    console.log(`patch body ${req.body}`);
+  
     PersonaModel.UpdatePersona(req.params.id_persona,req.body)
     .then((data) => {
         return res.status(201).send({message:data})
@@ -63,9 +61,7 @@ const updatePersona = (req,res) =>{
 
 
 const deletePersona = (req,res) =>{
-    console.log(req.body);
-   
-    console.log(`patch body ${req.body}`);
+    
     PersonaModel.deletePersona(req.params.id_persona)
     .then((data) => {
         return res.status(201).send({message:data})

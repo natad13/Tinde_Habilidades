@@ -11,7 +11,7 @@ const createPersona =(persona) =>{
 
 
 const getAllpersonas =() =>{
-    console.log("estoy buscando")
+   
     return database.select('*').from('persona');
 };
 
@@ -21,7 +21,7 @@ const getOnepersona =(id) =>{
 };
 
 const loginPersona =(usuario, pass, tipo) =>{
-    console.log('entre modelo Autorizacion ')
+ 
     return database.select('*').from(tipo).where({ usuario: usuario,contrasena:pass });
 };
 
