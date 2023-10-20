@@ -16,7 +16,8 @@ router.get ('/',TareaController.getAlltarea);
 router.get ('/:id_tarea',TareaController.getOneTarea);
 
 // Leer tarea por empresa
-router.get ('/empresa/:id_empresa',validateJTW,TareaController.getTareaEmpresa);
+//router.get ('/empresa/:id_empresa',validateJTW,TareaController.getTareaEmpresa);
+router.get ('/empresa/:id_empresa',TareaController.getTareaEmpresa);
 
 // Leer tarea por persona
 router.get ('/persona/:id_persona',TareaController.getTareaPersona);
