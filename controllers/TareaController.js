@@ -59,6 +59,21 @@ const getTareaEmpresa = (req,res) =>{
 
 };
 
+// Buscar Tarea por persona
+
+
+const getTareaPersona = (req,res) =>{
+    console.log(req.params.id_persona)
+    TareaModel.getTareaPersona(req.params.id_persona)
+    .then((data) => {
+        return res.status(201).send(data)
+    })
+    .catch ((error) =>{
+        return res.status(500).send({message: error})
+   });
+
+};
+
 //Actualizar empresa 
 
 const updateTarea = (req,res) =>{
@@ -92,5 +107,6 @@ module.exports = {
    getOneTarea,
    updateTarea,
    deleteTarea,
-   getTareaEmpresa
+   getTareaEmpresa,
+   getTareaPersona
 }

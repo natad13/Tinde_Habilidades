@@ -17,6 +17,9 @@ router.get ('/:id_tarea',TareaController.getOneTarea);
 // Leer tarea por empresa
 router.get ('/empresa/:id_empresa',TareaController.getTareaEmpresa);
 
+// Leer tarea por persona
+router.get ('/persona/:id_persona',TareaController.getTareaPersona);
+
 
 // Update todo
 router.put ('/:id_tarea',(req,res) => res.send ({ message : "Se sustituyo"}))
