@@ -63,6 +63,7 @@ const getTareaEmpresa = (req,res) =>{
 
 
 const getTareaPersona = (req,res) =>{
+     console.log("ingrese a tarea persona")
   
     TareaModel.getTareaPersona(req.params.id_persona)
     .then((data) => {

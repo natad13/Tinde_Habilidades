@@ -8,10 +8,10 @@ const {PersonaController} = require('../controllers')
 router.post('/',PersonaController.createPersona);
 
 // Leer Todos
-router.get ('/',PersonaController.getAllpersonas);
+router.get ('/',validateJTW,PersonaController.getAllpersonas);
 
 // Leer uno
-router.get ('/:id_persona',PersonaController.getOnepersona);
+router.get ('/:id_persona',validateJTW,PersonaController.getOnepersona);
 
 
 // Update todo
